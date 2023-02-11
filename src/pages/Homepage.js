@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Search from "../components/Search";
 import Picture from "../components/Picture";
+import dotenv from "dotenv";
+dotenv.config();
 
 const Homepage = () => {
   //輸入欲尋找的內容
@@ -11,7 +13,7 @@ const Homepage = () => {
   let [page, setPage] = useState(1);
   //現在搜尋的內容
   let [currentSearch, setcurrentSearch] = useState("");
-  const auth = "563492ad6f917000010000010ec68e59fba44caaab3ccd03affeb3f4";
+  const auth = process.env.AUTH;
   const initialURL = "https://api.pexels.com/v1/curated?page=1&per_page=15";
   const searchURL = `https://api.pexels.com/v1/search?query=${currentSearch}&per_page=15&page=1`;
 
